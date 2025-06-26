@@ -23,3 +23,6 @@ def test_forecast(a_valid_dataset: pd.DataFrame):
     last_input_date = a_valid_dataset["ds"].max()
     last_forecast_date = result["ds"].max()
     assert last_forecast_date > last_input_date
+
+    first_forecast_date = result["ds"].iloc[-periods]
+    assert first_forecast_date > last_input_date

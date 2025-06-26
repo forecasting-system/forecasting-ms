@@ -1,6 +1,7 @@
-import pytest
 import pandas as pd
+import pytest
 from fastapi.testclient import TestClient
+
 from app.api.main import app
 
 MOCK_DATA_PATH = "tests/mock_data/mock_data.csv"
