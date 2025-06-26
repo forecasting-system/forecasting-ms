@@ -2,3 +2,5 @@ __pycache__
 .venv
 
 mock_data
+
+.env
