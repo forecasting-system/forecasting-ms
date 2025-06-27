@@ -2,7 +2,7 @@ import pytest
 from datetime import date
 from pydantic import ValidationError
 
-from app.service.messaging.dto.sales_dto import SalesDTO
+from app.drivers.dto.sales_dto import SalesDTO
 
 # --- Valid case ---
 
