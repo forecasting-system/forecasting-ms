@@ -21,17 +21,17 @@ def test_valid_forecast():
 
 def test_forecast_point_invalid_date_type():
     with pytest.raises(ValueError, match="Date must be a date object."):
-        ForecastPoint(date="2024-01-01", y=10.0)
+        ForecastPoint(date="2024-01-01", y=10.0)  # type: ignore
 
 
 def test_forecast_point_invalid_y_type():
     with pytest.raises(ValueError, match="Value must be a number."):
-        ForecastPoint(date=date(2024, 1, 1), y="high")
+        ForecastPoint(date=date(2024, 1, 1), y="high")  # type: ignore
 
 
 def test_forecast_point_empty_date():
     with pytest.raises(ValueError, match="Date must not be empty."):
-        ForecastPoint(date=None, y=10.0)
+        ForecastPoint(date=None, y=10.0)  # type: ignore
 
 
 def test_forecast_point_empty_y():

@@ -4,3 +4,5 @@ __pycache__
 mock_data
 
 .env
+
+pyrightconfig.json

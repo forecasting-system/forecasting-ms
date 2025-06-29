@@ -1,19 +1,18 @@
-from app.domain.value_objects.sales_data import SalesData, SalesEntry
+import pytest
 from app.domain.entities.forecast import Forecast
-from app.use_cases.forecast_use_case import forecast_use_case
-from tests.mock_data.mock_sales_data import mock_sales_data
+from app.infrastructure.data.sales_data.in_memory_repository import InMemorySalesDataRepository
+from app.infrastructure.logs.uvicorn_logger import UvicornLogger
+from app.use_cases.forecast_use_case import ForecastUseCase
 
 
-def test_forecast_use_case_returns_forecast():
+@pytest.mark.asyncio
+async def test_forecast_use_case_returns_forecast():
+    sales_data_provider = InMemorySalesDataRepository()
+    forecast_use_case = ForecastUseCase(
+        sales_data_provider=sales_data_provider, logger=UvicornLogger())
 
-    entries = [SalesEntry(sales_entry[0], sales_entry[1])
-               for sales_entry in mock_sales_data]
-
-    sales_data = SalesData(entries=entries)
-
-    result = forecast_use_case(sales_data)
+    result = await forecast_use_case.execute()
 
     assert isinstance(result, Forecast)
-    # If Forecast has fields, check them
     assert result.points is not None
     assert len(result.points) > 0

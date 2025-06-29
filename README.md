@@ -6,7 +6,20 @@ This is a forecasting microservice that uses machine learning models to predict 
 
 ## Setup
 
+### Installation
+
 ```
-poetry run uvicorn app.api.main:app --reload
+poetry install
 ```
 
+### Startup
+
+```
+poetry run uvicorn app.drivers.main:app --reload
+```
+
+OR
+
+```
+poetry run poe start
+```
