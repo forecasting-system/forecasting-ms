@@ -15,7 +15,6 @@ class ForecastUseCase:
 
     async def execute(self) -> Forecast:
         trace_id = str(uuid.uuid4())
-
         sales_data = await self._sales_data_provider.get_sales_data()
         adapted_sales_data = sales_adapter(sales_data)
 

@@ -4,9 +4,9 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
 from app.constants import events
-from app.drivers.event_bus.event_bus_factory import get_event_bus
-from app.drivers.rest.routes.health import router as health_router
-from app.drivers.subpub.trigger_forecast import trigger_forecast
+from app.entrypoints.event_bus.event_bus_factory import get_event_bus
+from app.entrypoints.rest.routes.health import router as health_router
+from app.entrypoints.subpub.trigger_forecast import trigger_forecast
 from app.settings import settings
 from app.use_cases.mappers.forecast_mapper import dataclass_to_nats_payload
 

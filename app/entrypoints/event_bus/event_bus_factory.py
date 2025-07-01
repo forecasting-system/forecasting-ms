@@ -1,7 +1,7 @@
 
 
-from app.drivers.event_bus.interface.event_bus_provider import EventBus
-from app.drivers.event_bus.nats_event_bus_service import NATSClient, NATSEventBus
+from app.entrypoints.event_bus.interface.event_bus_provider import EventBus
+from app.entrypoints.event_bus.nats_event_bus_service import NATSClient, NATSEventBus
 from app.settings import EventServerType
 
 

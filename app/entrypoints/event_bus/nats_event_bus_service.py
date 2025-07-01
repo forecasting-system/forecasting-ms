@@ -1,4 +1,5 @@
 from typing import Any, Awaitable, Callable
+
 from nats.aio.client import Client as NATS
 from nats.aio.msg import Msg
 

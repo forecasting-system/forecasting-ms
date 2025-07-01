@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from app.drivers.main import app
+from app.entrypoints.main import app
 from app.settings import settings
 
 MOCK_DATA_PATH = "tests/mock_data/mock_data.csv"
