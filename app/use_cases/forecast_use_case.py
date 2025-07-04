@@ -15,7 +15,10 @@ class ForecastUseCase:
 
     async def execute(self) -> Forecast:
         trace_id = str(uuid.uuid4())
+        self._logger.info(
+            f"[trace_id={trace_id}] Request forecast sales data...")
         sales_data = await self._sales_data_provider.get_sales_data()
+        self._logger.info(f"[trace_id={trace_id}] Sales data received.")
         adapted_sales_data = sales_adapter(sales_data)
 
         self._logger.info(f"[trace_id={trace_id}] Starts forecasting...")

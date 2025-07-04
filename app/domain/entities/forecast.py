@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from typing import List
 import uuid
 
@@ -23,7 +23,8 @@ class ForecastPoint:
 @dataclass
 class Forecast:
     id: uuid.UUID = field(default_factory=uuid.uuid4)
-    created_at: datetime = field(default_factory=datetime.now)
+    created_at: str = field(default_factory=lambda: datetime.now(
+        timezone.utc).isoformat().replace('+00:00', 'Z'))
     points: List[ForecastPoint] = field(default_factory=list)
     model_version: str = "v1"
 
