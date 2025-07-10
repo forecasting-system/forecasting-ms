@@ -11,10 +11,12 @@ class MockNATSClient:
     async def request(self, subject: str, payload: bytes, timeout: float = 2.0) -> bytes:
         if subject == messages.SALES_GET_DATA:
             return json.dumps({
-                "entries": [
-                    {"date": "2024-01-01", "value": 100},
-                    {"date": "2024-01-02", "value": 200}
-                ]
+                "response": {
+                    "entries": [
+                        {"date": "2024-01-01", "value": 100},
+                        {"date": "2024-01-02", "value": 200}
+                    ]
+                }
             }).encode("utf-8")
         raise ValueError("Unknown subject")
 

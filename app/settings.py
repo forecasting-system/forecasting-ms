@@ -12,7 +12,6 @@ class MessagingServerType(str, Enum):
 
 
 class Settings(BaseSettings):
-    USE_MOCK_DATA: bool = False
     NATS_URL: str = "nats://localhost:4222"
     MESSAGING_SERVER: MessagingServerType = MessagingServerType.NATS
     EVENT_SERVER: EventServerType = EventServerType.NATS
